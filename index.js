@@ -1,0 +1,1 @@
+var x$;x$=angular.module("main",[]),x$.controller("main",["$scope","$http"].concat(function(o,n){return n({url:"pokemons.json",method:"GET"}).success(function(e){return o.pokedex=e.pokemon,n({url:"mypokemon.json",method:"GET"}).success(function(n){return o.pokemons=n,o.pokemons.map(function(n){return n.detail=o.pokedex[+n.pokemon_id-1],n.img=n.detail.img})})})}));

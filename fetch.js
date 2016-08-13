@@ -1,0 +1,1 @@
+var fs,request,path,list,fetch;fs=require("fs"),request=require("request"),path=require("path"),list=JSON.parse(fs.readFileSync("pokemons.json").toString()).pokemon.map(function(e){return e.img}),fetch=function(e){var t;return t=path.basename(e),request(e).pipe(fs.createWriteStream("img/"+t))},list.map(function(e){return fetch(e)});
